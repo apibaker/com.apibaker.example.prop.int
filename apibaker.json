@@ -1,0 +1,106 @@
+{
+    "name": "com.apibaker.example.prop.int",
+    "version": "1.0.0",
+    "description": "an example application of integer property",
+    "language": "Node",
+    /* mysql or PostgreSQL */
+    "database": "mysql", 
+    "author": "apibaker.com",
+    "domain": [
+        {
+            "name": "Main",
+            "description": "main domain",
+            "entity": [
+                {
+                    "name": "Ent",
+                    "description": "ent",
+                    "prop": [
+                        {
+                            "name": "Prop1",
+                            "description": "Prop1",
+                            "type": "integer"
+                        }
+                    ],
+                    "action": [
+                        {
+                            "name": "CreateEnt",
+                            "description": "create ent",
+                            "type": "Create",
+                            "field": [
+                                "Prop1"
+                            ],
+                            "path": "/ent",
+                            "method": "PUT"
+                        },
+                        {
+                            "name": "ReadEnt",
+                            "description": "read ent",
+                            "type": "Read",
+                            "field": [
+                                "Prop1"
+                            ],
+                            "path": "/ent/:id",
+                            "method": "GET"
+                        },
+                        {
+                            "name": "DeleteEnt",
+                            "description": "delete ent",
+                            "type": "Delete",
+                            "field": [
+                                "Prop1"
+                            ],
+                            "path": "/ent/:id",
+                            "method": "DELETE"
+                        }
+                        
+                    ]
+                }
+            ]
+        }
+    ],
+    "test": [
+        {
+            "action": "main_CreateEnt",
+            "in": {
+                "obj": {
+                    "Prop1": 1
+                }
+            },
+            "out": {
+                "main_EntId": 1
+            }
+        },
+        {
+            "action": "main_ReadEnt",
+            "in": {
+                "id": 1
+            },
+            "out": {
+                "count": 1,
+                "data": [
+                    {
+                        "Prop1": 1
+                    }
+                ]
+            }
+        },
+        {
+            "action": "main_DeleteEnt",
+            "in": {
+                "id": 1
+            },
+            "out": {
+                
+            }
+        },
+        {
+            "action": "main_ReadEnt",
+            "in": {
+                "id": 0
+            },
+            "out": {
+                "data":[]
+            }
+        }
+    ]
+}
