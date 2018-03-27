@@ -1,19 +1,13 @@
 {
-    "apibaker": {
-        "databse":"mysql or PostgreSQL",
-        "language":"Node only",
-        "prop type":"string, integer, date, time, datetime, timestamp",
-        "refe type":"one2one, one2many, many2one, many2many"
-    },
-    "name": "com.apibaker.example.prop.int",
+    "name": "simple_app",
     "version": "1.0.0",
-    "description": "an example application of integer property",
-    "language": "Node",
-    "database": "mysql", 
+    "description": "a simple sample app of api baker",
+    "language": "node",
+    "database": "mysql",
     "author": "apibaker.com",
     "domain": [
         {
-            "name": "Main",
+            "name": "main",
             "description": "main domain",
             "entity": [
                 {
@@ -51,19 +45,17 @@
                             "name": "DeleteEnt",
                             "description": "delete ent",
                             "type": "Delete",
-                            "field": [
-                                "Prop1"
-                            ],
+                            
                             "path": "/ent/:id",
                             "method": "DELETE"
                         }
-                        
                     ]
                 }
             ]
         }
     ],
     "test": [
+
         {
             "action": "main_CreateEnt",
             "in": {
@@ -101,9 +93,10 @@
         {
             "action": "main_ReadEnt",
             "in": {
-                "id": 0
+                "id": 1
             },
             "out": {
+                "count": 0,
                 "data":[]
             }
         }

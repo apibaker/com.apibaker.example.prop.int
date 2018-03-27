@@ -15,22 +15,22 @@ const router = express.Router();
 const apibaker = require('apibaker');
 const dbAdapter = apibaker.pg_adapter;
 const database = require('./database.js');
-const dbconn = dbAdapter.connect("com.apibaker.example.prop.int", database);
+const dbconn = dbAdapter.connect("simple_app", database);
 
 
-var Main_CreateEnt = require("./action/act_Main_CreateEnt.js");
+var main_CreateEnt = require("./action/act_main_CreateEnt.js");
 
-var Main_ReadEnt = require("./action/act_Main_ReadEnt.js");
+var main_ReadEnt = require("./action/act_main_ReadEnt.js");
 
-var Main_DeleteEnt = require("./action/act_Main_DeleteEnt.js");
+var main_DeleteEnt = require("./action/act_main_DeleteEnt.js");
 
 
 
-router.put('/Main/ent', function(req, resp) {
+router.put('/main/ent', function(req, resp) {
     var param = {};
     param.id = req.params.id;
     param.obj = req.body.obj;
-    Main_CreateEnt (param, dbconn, function(res){
+    main_CreateEnt (param, dbconn, function(res){
       resp.json(res);
     }, function(error){
       resp.status(500);
@@ -38,11 +38,11 @@ router.put('/Main/ent', function(req, resp) {
     })
 });
 
-router.get('/Main/ent/:id', function(req, resp) {
+router.get('/main/ent/:id', function(req, resp) {
     var param = {};
     param.id = req.params.id;
     param.obj = req.body.obj;
-    Main_ReadEnt (param, dbconn, function(res){
+    main_ReadEnt (param, dbconn, function(res){
       resp.json(res);
     }, function(error){
       resp.status(500);
@@ -50,11 +50,11 @@ router.get('/Main/ent/:id', function(req, resp) {
     })
 });
 
-router.delete('/Main/ent/:id', function(req, resp) {
+router.delete('/main/ent/:id', function(req, resp) {
     var param = {};
     param.id = req.params.id;
     param.obj = req.body.obj;
-    Main_DeleteEnt (param, dbconn, function(res){
+    main_DeleteEnt (param, dbconn, function(res){
       resp.json(res);
     }, function(error){
       resp.status(500);

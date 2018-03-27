@@ -1,8 +1,8 @@
 
     {
-        "name": "com.apibaker.example.prop.int",
+        "name": "simple_app",
         "version": "1.0.0",
-        "description": "an example application of integer property",
+        "description": "a simple sample app of api baker",
         "main": "server.js",
         "scripts": {
             "start": "node server.js",

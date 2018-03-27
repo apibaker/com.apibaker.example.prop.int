@@ -2,18 +2,18 @@
 const apibaker = require('apibaker');
 const dbAdapter = apibaker.pg_adapter;
 const database = require('./database.js');
-const dbconn = dbAdapter.connect("com.apibaker.example.prop.int", database);
+const dbconn = dbAdapter.connect("simple_app", database);
 const assert = require('assert');
 
 
-const Main_CreateEnt = require("./action/act_Main_CreateEnt.js");
+const main_CreateEnt = require("./action/act_main_CreateEnt.js");
 
-const Main_ReadEnt = require("./action/act_Main_ReadEnt.js");
+const main_ReadEnt = require("./action/act_main_ReadEnt.js");
 
-const Main_DeleteEnt = require("./action/act_Main_DeleteEnt.js");
+const main_DeleteEnt = require("./action/act_main_DeleteEnt.js");
 
 
-describe('com.apibaker.example.prop.int', function() {
+describe('simple_app', function() {
     
         it('main_CreateEnt', function(done) {
             let param = {"obj":{"Prop1":1}};
@@ -49,8 +49,8 @@ describe('com.apibaker.example.prop.int', function() {
         });   
     
         it('main_ReadEnt', function(done) {
-            let param = {"id":0};
-            let expected = {"data":[]};
+            let param = {"id":1};
+            let expected = {"count":0,"data":[]};
             main_ReadEnt (param, dbconn, function(res){
                 assert.equal(JSON.stringify(expected) , JSON.stringify(res))
                 done()
@@ -61,7 +61,7 @@ describe('com.apibaker.example.prop.int', function() {
     
     
         it('disconnectDB', function(done) {
-            dbAdapter.disconnect("com.apibaker.example.prop.int", dbconn);
+            dbAdapter.disconnect("simple_app", dbconn);
             done()
         })
     });
