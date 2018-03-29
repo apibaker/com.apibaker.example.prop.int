@@ -7,8 +7,8 @@ const setupSchema = function(conn, succ, err) {
   var sql = [
  "CREATE SCHEMA IF NOT EXISTS  simple_app;",
  "SET SEARCH_PATH TO  simple_app ,public ;",
- "drop table  if exists main_Ent CASCADE;",
- "CREATE TABLE IF NOT EXISTS main_Ent(main_EntId BIGSERIAL NOT NULL ,Prop1 INT, CONSTRAINT  PK_main_Ent  PRIMARY KEY (MAIN_ENTID))  ;"
+ "drop table  if exists Main_Ent CASCADE;",
+ "CREATE TABLE IF NOT EXISTS Main_Ent(Main_EntId BIGSERIAL NOT NULL ,Prop1 INT, CONSTRAINT  PK_Main_Ent  PRIMARY KEY (MAIN_ENTID))  ;"
 ]
   dbAdapter.runSql(conn, sql, succ, err)
 }

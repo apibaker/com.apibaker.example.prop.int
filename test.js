@@ -6,11 +6,11 @@ const dbconn = dbAdapter.connect("simple_app", database);
 const assert = require('assert');
 
 
-const main_CreateEnt = require("./action/act_main_CreateEnt.js");
+const Main_CreateEnt = require("./action/act_Main_CreateEnt.js");
 
-const main_ReadEnt = require("./action/act_main_ReadEnt.js");
+const Main_ReadEnt = require("./action/act_Main_ReadEnt.js");
 
-const main_DeleteEnt = require("./action/act_main_DeleteEnt.js");
+const Main_DeleteEnt = require("./action/act_Main_DeleteEnt.js");
 
 
 describe('simple_app', function() {
