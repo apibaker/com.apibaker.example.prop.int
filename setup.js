@@ -8,8 +8,8 @@ const setupSchema = function(conn, succ, err) {
  "CREATE SCHEMA IF NOT EXISTS  simple_app;",
  "USE  simple_app ;",
  "SET foreign_key_checks = 0;",
- "drop table  if exists Main_Ent;",
- "CREATE TABLE Main_Ent(Main_EntId BIGINT NOT NULL AUTO_INCREMENT ,Prop1 INT, CONSTRAINT  PRIMARY KEY (MAIN_ENTID)) ENGINE=InnoDB ;",
+ "drop table  if exists main_Ent;",
+ "CREATE TABLE main_Ent(main_EntId BIGINT NOT NULL AUTO_INCREMENT ,Prop1 INT, CONSTRAINT  PRIMARY KEY (MAIN_ENTID)) ENGINE=InnoDB ;",
  "SET foreign_key_checks = 1;"
 ]
   dbAdapter.runSql(conn, sql, succ, err)
