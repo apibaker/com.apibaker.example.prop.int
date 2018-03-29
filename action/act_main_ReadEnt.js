@@ -6,15 +6,15 @@ const prepareInput = execaction.prepareInput;
 const execAction = execaction.execAction;
 
 module.exports = function(param, conn, succ, err) {
-  var actionName = "main_ReadEnt";
+  var actionName = "Main_ReadEnt";
   var actionType = "Query";
-  var entName = "main_Ent";
+  var entName = "Main_Ent";
   
   var input = prepareInput(param, actionType, entName);
   
   var dbObj = [
  {
-  "cmd": "SET SEARCH_PATH TO  simple_app ,public ;\n",
+  "cmd": "SET SEARCH_PATH TO  com.apibaker.example.prop.int ,public ;\n",
   "inFrom": true,
   "inSize": true,
   "inParam": [],
@@ -23,12 +23,12 @@ module.exports = function(param, conn, succ, err) {
   "outQuery": true
  },
  {
-  "cmd": "SELECT COUNT(*) AS  CNT  FROM (SELECT  T_1.Prop1 AS PROP1 FROM main_Ent AS T_1 WHERE  T_1.main_EntId = $1)  AS  COUNTQRY ",
+  "cmd": "SELECT COUNT(*) AS  CNT  FROM (SELECT  T_1.Prop1 AS PROP1 FROM Main_Ent AS T_1 WHERE  T_1.Main_EntId = $1)  AS  COUNTQRY ",
   "inParam": [
    [
     1,
     "Id",
-    "main_EntId",
+    "Main_EntId",
     "=",
     1
    ]
@@ -36,14 +36,14 @@ module.exports = function(param, conn, succ, err) {
   "outCount": true
  },
  {
-  "cmd": "SELECT  T_1.Prop1 AS PROP1 FROM main_Ent AS T_1 WHERE  T_1.main_EntId = $1",
+  "cmd": "SELECT  T_1.Prop1 AS PROP1 FROM Main_Ent AS T_1 WHERE  T_1.Main_EntId = $1",
   "inFrom": true,
   "inSize": true,
   "inParam": [
    [
     1,
     "Id",
-    "main_EntId",
+    "Main_EntId",
     "=",
     1
    ]

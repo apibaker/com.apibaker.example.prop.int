@@ -6,15 +6,15 @@ const prepareInput = execaction.prepareInput;
 const execAction = execaction.execAction;
 
 module.exports = function(param, conn, succ, err) {
-  var actionName = "main_CreateEnt";
+  var actionName = "Main_CreateEnt";
   var actionType = "Create";
-  var entName = "main_Ent";
+  var entName = "Main_Ent";
   
   var input = prepareInput(param, actionType, entName);
   
   var dbObj = [
  {
-  "cmd": "SET SEARCH_PATH TO  simple_app ,public ;\n",
+  "cmd": "SET SEARCH_PATH TO  com.apibaker.example.prop.int ,public ;\n",
   "inFrom": true,
   "inSize": true,
   "inParam": [],
@@ -23,7 +23,7 @@ module.exports = function(param, conn, succ, err) {
   "outQuery": true
  },
  {
-  "cmd": "INSERT INTO main_Ent (Prop1) VALUES  ($1)  RETURNING main_EntId ",
+  "cmd": "INSERT INTO Main_Ent (Prop1) VALUES  ($1)  RETURNING Main_EntId ",
   "inParam": [
    [
     1,
@@ -37,8 +37,8 @@ module.exports = function(param, conn, succ, err) {
    [
     1,
     "Id",
-    "main_EntId",
-    "main_EntId",
+    "Main_EntId",
+    "Main_EntId",
     null
    ]
   ],

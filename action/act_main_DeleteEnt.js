@@ -6,15 +6,15 @@ const prepareInput = execaction.prepareInput;
 const execAction = execaction.execAction;
 
 module.exports = function(param, conn, succ, err) {
-  var actionName = "main_DeleteEnt";
+  var actionName = "Main_DeleteEnt";
   var actionType = "Delete";
-  var entName = "main_Ent";
+  var entName = "Main_Ent";
   
   var input = prepareInput(param, actionType, entName);
   
   var dbObj = [
  {
-  "cmd": "SET SEARCH_PATH TO  simple_app ,public ;\n",
+  "cmd": "SET SEARCH_PATH TO  com.apibaker.example.prop.int ,public ;\n",
   "inFrom": true,
   "inSize": true,
   "inParam": [],
@@ -23,12 +23,12 @@ module.exports = function(param, conn, succ, err) {
   "outQuery": true
  },
  {
-  "cmd": "DELETE FROM main_Ent WHERE main_EntId=$1",
+  "cmd": "DELETE FROM Main_Ent WHERE Main_EntId=$1",
   "inParam": [
    [
     1,
     "Id",
-    "main_EntId",
+    "Main_EntId",
     "",
     null
    ]
