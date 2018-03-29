@@ -40,7 +40,7 @@ module.exports =
     connectionString : process.env.DBURI || '<INPUT DATABASE URL HERE>'
 }
 ```
-The database URL may look like as: postgresql://postgres:postgres@localhost/simple_app.
+The database URL may look like as: mysql://root:root@localhost/simple_app.
 Or the database URL can be specified in environment configuration file.
 
 ##### 4. setup database schema

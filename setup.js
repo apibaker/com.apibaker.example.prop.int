@@ -1,14 +1,16 @@
 
 
 const apibaker = require('apibaker')
-const dbAdapter = apibaker.pg_adapter;
+const dbAdapter = apibaker.mysql_adapter;
 
 const setupSchema = function(conn, succ, err) {
   var sql = [
  "CREATE SCHEMA IF NOT EXISTS  simple_app;",
- "SET SEARCH_PATH TO  simple_app ,public ;",
- "drop table  if exists Main_Ent CASCADE;",
- "CREATE TABLE IF NOT EXISTS Main_Ent(Main_EntId BIGSERIAL NOT NULL ,Prop1 INT, CONSTRAINT  PK_Main_Ent  PRIMARY KEY (MAIN_ENTID))  ;"
+ "USE  simple_app ;",
+ "SET foreign_key_checks = 0;",
+ "drop table  if exists Main_Ent;",
+ "CREATE TABLE Main_Ent(Main_EntId BIGINT NOT NULL AUTO_INCREMENT ,Prop1 INT, CONSTRAINT  PRIMARY KEY (MAIN_ENTID)) ENGINE=InnoDB ;",
+ "SET foreign_key_checks = 1;"
 ]
   dbAdapter.runSql(conn, sql, succ, err)
 }

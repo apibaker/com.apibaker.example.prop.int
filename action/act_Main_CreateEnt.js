@@ -1,6 +1,6 @@
 
 const apibaker = require('apibaker');
-const dbAdapter = apibaker.pg_adapter;
+const dbAdapter = apibaker.mysql_adapter;
 const execaction = apibaker.execaction;
 const prepareInput = execaction.prepareInput;
 const execAction = execaction.execAction;
@@ -14,7 +14,7 @@ module.exports = function(param, conn, succ, err) {
   
   var dbObj = [
  {
-  "cmd": "SET SEARCH_PATH TO  simple_app ,public ;\n",
+  "cmd": "USE  simple_app ;\n",
   "inFrom": true,
   "inSize": true,
   "inParam": [],
@@ -23,7 +23,7 @@ module.exports = function(param, conn, succ, err) {
   "outQuery": true
  },
  {
-  "cmd": "INSERT INTO Main_Ent (Prop1) VALUES  ($1)  RETURNING Main_EntId ",
+  "cmd": "INSERT INTO Main_Ent (Prop1) VALUES  (?) ",
   "inParam": [
    [
     1,

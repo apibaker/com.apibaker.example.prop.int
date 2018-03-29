@@ -1,6 +1,6 @@
   
 const apibaker = require('apibaker');
-const dbAdapter = apibaker.pg_adapter;
+const dbAdapter = apibaker.mysql_adapter;
 const database = require('./database.js');
 const dbconn = dbAdapter.connect("simple_app", database);
 const assert = require('assert');
